@@ -1,0 +1,67 @@
+Git Flow
+
+Setup
+	git flow init
+	git checkout master
+	git push -u origin master
+	git checkout develop
+	git push -u origin develop
+
+Clone
+	git clone
+	git flow init
+
+Feature
+	Create feature
+	git checkout develop
+	git flow feature start NAME
+	git add .
+	git commit
+	git flow feature publish NAME
+
+	Pull feature with no tracking
+	git flow feature pull NAME
+	
+	Pull feature with tracking
+	git flow feature track NAME
+	git push
+
+	Finish feature / merge (Won’t be used, do PR through GH)
+	git flow feature finish NAME
+	git push (develop)
+	
+Release
+	Create release branch
+	git checkout develop
+	git flow release start NAME
+	git flow release publish NAME
+
+	Push changes to release branch
+	git flow release track NAME - pull the release to make changes
+	git add .
+	git  commit
+	git push
+
+	Move changes on release branch to develop
+	git checkout develop
+	git pull
+	git merge NAME
+	git push
+
+	Finish release
+	git checkout NAME
+	git pull
+	git flow release finish NAME (merges into master branch and adds tag)
+	git checkout master
+	git push —tags
+	git push
+
+Hot-fix
+	git flow hotfix start NAME
+	git commit
+	git flow hotfix publish NAME
+	git flow hotfix finish NAME
+	git checkout master
+	git push
+	git checkout develop
+	git push
